@@ -1,4 +1,4 @@
-Feature: Provide Authentication
+Feature: Feature to Provide Authentication
 
   Background:
     Given url 'https://practice.expandtesting.com/notes/api'
