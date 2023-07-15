@@ -13,3 +13,4 @@ Feature: Feature to Provide Authentication
     When method post
     Then status 200
     * def tokens = response.data.token
+    * print tokens
