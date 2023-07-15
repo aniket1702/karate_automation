@@ -14,16 +14,10 @@
         </encoder>
     </appender>
 
-    <logger name="com.intuit.karate" level="INFO"/>
-    <logger name="org.thymeleaf" level="OFF"/>
-    <logger name="org.attoparser" level="OFF"/>
+    <logger name="com.intuit.karate" level="WARN"/>
+    <logger name="org.thymeleaf" level="WARN"/>
 
-    <Logger name="org.thymeleaf" level="OFF" additivity="false">
-        <AppenderRef ref="Console"/>
-    </Logger>
-    <Logger name="org.attoparser" level="OFF" additivity="false">
-        <AppenderRef ref="Console"/>
-    </Logger>
+
 
     <root level="info">
         <appender-ref ref="STDOUT" />
