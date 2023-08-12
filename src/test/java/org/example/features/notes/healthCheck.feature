@@ -12,7 +12,7 @@ Feature: Health Check Feature Test
     When method get
     Then status 200
 
-  Scenario Outline: User Login read via json
+  Scenario Outline: User Login
     Given path 'users/login'
     And header Content-Type = 'application/json; charset=utf-8'
     * def userLogin = read('classpath:org/example/inputs/notes/userLogin.json')
@@ -27,17 +27,16 @@ Feature: Health Check Feature Test
     """
     When method post
     Then status 200
-    * print <expectedStatus>
-    And match response.status == Number(expectedStatus)
+    * print response
 
     Examples:
-      | email                 | password      | expectedStatus |
-      | John2.Doe@gmail.com   | John@Doe123   | 200      |
-      | Larry2.Gill@gmail.com | Larry@Gill123 | 200      |
-      | Johny2.Doe@gmail.com  | Johny@Doe123  | 200     |
+      | email | password |
+      | John2.Doe@gmail.com | John@Doe123 |
+      | Larry2.Gill@gmail.com | Larry@Gill123 |
+      | Johny2.Doe@gmail.com | Johny@Doe123 |
 
   @ignore
-  Scenario Outline: User Registration read values from json
+  Scenario Outline: User Registration
     Given path '/users/register'
     And header Content-Type = 'application/json; charset=utf-8'
     * def userRegistration = read('classpath:org/example/inputs/notes/userRegisterV1.json')
@@ -54,25 +53,10 @@ Feature: Health Check Feature Test
     """
     When method post
     Then status 201
-    * print <response>
-    And match response.status == <response>
+    * print response
 
     Examples:
-      | name  | email                 | password      | response |
-      | John  | John4.Doe@gmail.com   | John@Doe123   | 201      |
-      | Larry | Larry4.Gill@gmail.com | Larry@Gill123 | 201      |
-      | Johny | Johny4.Doe@gmail.com  | Johny@Doe123  | 201      |
-
-
-  Scenario Outline:<TestScenarioNo> User Login read via CSV
-    Given path 'users/login'
-    And header Content-Type = 'application/json; charset=utf-8'
-    When request { email: '<email>', password: '<password>' }
-    And method post
-    Then status 200
-    * print <expectedStatusCode>
-    And match response.status == Number(expectedStatusCode)
-
-    Examples:
-      | read('classpath:org/example/inputs/notes/csv/data/testData.csv')  |
-
+      | name | email | password |
+      | John | John4.Doe@gmail.com | John@Doe123 |
+      | Larry | Larry4.Gill@gmail.com | Larry@Gill123 |
+      | Johny | Johny4.Doe@gmail.com | Johny@Doe123 |

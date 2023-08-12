@@ -1,4 +1,4 @@
-name: CI/CD - Automatic Trigger
+name: CI/CD
 on:
     push:
         branches:
@@ -30,5 +30,4 @@ jobs:
                 key: maven-${{ hashFiles('**/usr/share/maven/**') }}
             - name: Run tests
               run: |
-                echo "Running Karate Tests..." 
                 mvn clean test -Dtest=TestRunner
