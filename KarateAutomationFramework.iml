@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module version="4">
-  <component name="AdditionalModuleElements">
-    <content url="file://$MODULE_DIR$" dumb="true">
-      <excludeFolder url="file://$MODULE_DIR$/.idea/sonarlint/securityhotspotstore/2" />
-      <excludeFolder url="file://$MODULE_DIR$/.idea/sonarlint/securityhotspotstore/a" />
-    </content>
+  <component name="SonarLintModuleSettings">
+    <option name="uniqueId" value="8d43cbf5-e441-46d4-b4d8-89a344045f8a" />
   </component>
   <component name="SonarLintModuleSettings">
     <option name="uniqueId" value="64f3542f-9d07-4bba-898e-96c69fa24a38" />
