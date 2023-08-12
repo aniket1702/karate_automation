@@ -16,18 +16,18 @@ jobs:
             - name: Cache JDK
               uses: actions/cache@v2
               with:
-                path: /usr/lib/jvm/java-11-openjdk-amd64
-                key: java-11-openjdk-amd64-${{ hashFiles('**/java-11-openjdk-amd64/**') }}
+                  path: /usr/lib/jvm/java-11-openjdk-amd64
+                  key: java-11-openjdk-amd64-${{ hashFiles('**/java-11-openjdk-amd64/**') }}
 
             - name: Install Maven
               run: |
-                    sudo apt-get update
-                    sudo apt-get install -y maven
+                  sudo apt-get update
+                  sudo apt-get install -y maven
             - name: Cache Maven
               uses: actions/cache@v2
               with:
-                path: /usr/share/maven
-                key: maven-${{ hashFiles('**/usr/share/maven/**') }}
+                  path: /usr/share/maven
+                  key: maven-${{ hashFiles('**/usr/share/maven/**') }}
             - name: Run tests
               run: |
-                mvn clean test -Dtest=TestRunner
+                  mvn clean test -Dtest=TestRunner
