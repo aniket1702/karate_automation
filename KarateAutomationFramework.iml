@@ -6,4 +6,7 @@
       <excludeFolder url="file://$MODULE_DIR$/.idea/sonarlint/securityhotspotstore/a" />
     </content>
   </component>
+  <component name="SonarLintModuleSettings">
+    <option name="uniqueId" value="80c0b8f0-0b47-4ebc-ae89-5a45eef82eca" />
+  </component>
 </module>

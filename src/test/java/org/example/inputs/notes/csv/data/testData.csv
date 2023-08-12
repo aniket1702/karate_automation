@@ -1,0 +1,4 @@
+﻿TestScenarioNo,email,password,expectedStatusCode
+1,#ignore,#ignore,#ignore
+2,John2.Doe@gmail.com,John@Doe123,200
+3,Johny2.Doe@gmail.com,Johny@Doe123,200
