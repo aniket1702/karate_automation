@@ -1,4 +1,4 @@
-name: CI/CD - Automatic Trigger
+name: CI/CD - Automatic Trigger -Parallel
 
 on:
     push:
@@ -7,14 +7,13 @@ on:
             - feature/demo
 
 jobs:
-    setup_repo:
+    build:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout Repository
               uses: actions/checkout@v2
 
-    setup_jdk_cache:
-        needs: setup_repo
+    install_java:
         runs-on: ubuntu-latest
         steps:
             - name: Set up JDK
@@ -27,8 +26,7 @@ jobs:
                   path: /usr/lib/jvm/java-11-openjdk-amd64
                   key: java-11-openjdk-amd64-${{ hashFiles('**/java-11-openjdk-amd64/**') }}
 
-    setup_maven_cache:
-        needs: setup_repo
+    install_maven:
         runs-on: ubuntu-latest
         steps:
             - name: Install Maven
@@ -42,7 +40,7 @@ jobs:
                   key: maven-${{ hashFiles('**/usr/share/maven/**') }}
 
     run_tests:
-        needs: [setup_jdk_cache, setup_maven_cache]
+        needs: [install_java, install_maven]
         runs-on: ubuntu-latest
         steps:
             - name: Use Node.js 16
@@ -53,4 +51,11 @@ jobs:
               run: |
                   mvn clean test -Dtest=TestRunner
 
-# Add post job if needed
+    post_cleanup:
+        needs: run_tests
+        runs-on: ubuntu-latest
+        steps:
+            - name: Post Cleanup or Cache
+                # Add your cleanup or cache steps here
+
+# Add additional jobs or post jobs if needed
