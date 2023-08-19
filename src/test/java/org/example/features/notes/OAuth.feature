@@ -1,9 +1,7 @@
 Feature: Feature to Provide Authentication
 
   Background:
-    Given url 'https://practice.expandtesting.com/notes/api'
-    When method get
-    Then status 200
+    Given url baseUrl
 
   Scenario: Authenticate valid user
     Given path 'users/login'

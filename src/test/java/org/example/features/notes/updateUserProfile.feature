@@ -1,7 +1,7 @@
 Feature: Feature to update users profile
   Background:
     * def OAuth = call read('OAuth.feature')
-    * url 'https://practice.expandtesting.com/notes/api'
+    * url baseUrl
 
   Scenario Outline: Update users profile based on unique name
     Given path 'users/profile'
