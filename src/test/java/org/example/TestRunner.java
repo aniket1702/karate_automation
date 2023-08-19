@@ -24,7 +24,7 @@ public class TestRunner {
     public void karateTestRunner()
     {
         
-        Results results= Runner.path("classpath:org/example/features/notes").backupReportDir(false).parallel(5);
+        Results results= Runner.path("classpath:org/example/features").backupReportDir(false).parallel(0);
         CustomExtentReport customExtentReport=new CustomExtentReport()
                 .withKarateResult(results)
                 .withReportDir(results.getReportDir())
