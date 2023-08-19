@@ -29,6 +29,12 @@ jobs:
               with:
                   path: /usr/share/maven
                   key: maven-${{ hashFiles('**/usr/share/maven/**') }}
+
+            - name: Use Node.js 16
+              uses: actions/setup-node@v2
+              with:
+                    node-version: 16
+
             - name: Run tests
               run: |
                   mvn clean test -Dtest=TestRunner

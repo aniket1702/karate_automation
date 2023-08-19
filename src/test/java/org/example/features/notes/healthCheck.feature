@@ -3,12 +3,15 @@
 Feature: Health Check Feature Test
 
   Background:
-    Given url 'https://practice.expandtesting.com/notes/api'
-    When method get
-    Then status 200
+    * def RandomStringUtils = Java.type('org.example.util.RandomStringUtils')
+    * def randomStringUtils = new RandomStringUtils()
+    Given url baseUrl
+
 
   Scenario: Health check feature
     Given path '/health-check'
+    * def name = randomStringUtils.getName()
+    Then print 'Name:', name
     When method get
     Then status 200
 
